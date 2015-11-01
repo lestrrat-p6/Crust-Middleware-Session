@@ -24,6 +24,13 @@ DESCRIPTION
 
 Crust::Middlewre::Session manages sessions for your Crust app. This module uses cookies to keep session state and does not support URI based session state.
 
+A session object will be available under the kye `p6sgix.session` in the P6SGI environment hash. You can use this to access session data
+
+    my &app = ->%env {
+        %env<p6sgi.session>.get("username").say;
+        ...
+    };
+
 AUTHOR
 ======
 

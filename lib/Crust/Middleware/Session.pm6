@@ -92,7 +92,6 @@ sub default-sid-validator($sid) returns Bool {
 }
 
 method CALL-ME(%env) {
-CATCH { default { $_.say } }
     my ($id, $session) = self.get-session(%env);
 
     if $id.defined && $session.defined {
@@ -258,6 +257,14 @@ Crust::Middleware::Session - Session Middleware for Crust Framework
 Crust::Middlewre::Session manages sessions for your Crust app.
 This module uses cookies to keep session state and does not support URI based
 session state.
+
+A session object will be available under the kye `p6sgix.session` in the
+P6SGI environment hash. You can use this to access session data
+
+    my &app = ->%env {
+        %env<p6sgi.session>.get("username").say;
+        ...
+    };
 
 =head1 AUTHOR
 
