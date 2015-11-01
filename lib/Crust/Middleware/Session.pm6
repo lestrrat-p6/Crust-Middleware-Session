@@ -25,7 +25,7 @@ class Store::Memory does StoreRole {
 }
 
 class SimpleSession {
-    has $.id;
+    has $.id is rw is required;
     has Bool $.modified is rw; # True only if data has been modified
     has Bool $.expired is rw; # Mark session as expired
     has Bool $.is-new; # Mark session as being new

@@ -8,6 +8,17 @@ my &app = sub (%env) {
 };
 
 subtest {
+    dies-ok {
+        Crust::Middleware::Session::SimpleSession.new()
+    }, "id should be required, so arg-less new() should die";
+
+    lives-ok {
+        my $s = Crust::Middleware::Session::SimpleSession.new(:id("foo"));
+        $s.id = "bar";
+    }, "can change id";
+}, "SimpleSession";
+
+subtest {
     dies-ok { Crust::Middleware::Session.new() }, "missing :store dies";
     lives-ok { Crust::Middleware::Session.new(
         &app,
