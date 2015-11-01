@@ -8,6 +8,7 @@
   },
   "depends" : [
     "Cookie::Baker",
+    "Crust",
     "Digest::SHA"
   ],
   "description" : "Session Middleware for Crust Framework",
