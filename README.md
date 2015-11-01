@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/lestrrat/p6-Crust-Middleware-Session.svg?branch=master)](https://travis-ci.org/lestrrat/p6-Crust-Middleware-Session)
+
 NAME
 ====
 
