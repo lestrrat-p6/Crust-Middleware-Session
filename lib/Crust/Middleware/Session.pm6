@@ -196,14 +196,6 @@ method finalize(%env, @res, $session) {
         if $session.expired {
             $session.expires = 'now';
         }
-        my %opts = (
-            :domain($session.domain),
-            :path($session.path),
-            :expires($session.expires),
-            :secure($session.secure),
-            :httponly($session.httponly),
-            :max-age($session.max-age),
-        );
         self.set-cookie(@res, $session);
     }
 
