@@ -13,7 +13,7 @@ SYNOPSIS
 
     # $store can be anything that implements Crust::Middleware:Session::StoreRole.
     # This here is a dummy that stores everything in memory
-    my $store = Crust::Middleware::Session::Store.new();
+    my $store = Crust::Middleware::Session::Store::Memory.new();
     builder {
       enable 'Session', :store($store);
       &app;
@@ -27,7 +27,7 @@ Crust::Middlewre::Session manages sessions for your Crust app. This module uses 
 A session object will be available under the kye `p6sgix.session` in the P6SGI environment hash. You can use this to access session data
 
     my &app = ->%env {
-        %env<p6sgi.session>.get("username").say;
+        %env<p6sgix.session>.get("username").say;
         ...
     };
 
